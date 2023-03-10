@@ -1,16 +1,131 @@
-.accordion {
+body {
+    font-size: 20px;
+}
 
+h1 {
+    text-align: center;
+}
+
+.accordion {
+    margin: 0 auto;
+    padding: 2rem;
+    background: orange;
+    color: blue;
 }
 
 .accordion .accordion-tab {
     overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid grey;
+}
+
+.accordion .accordion-tab img {
+    max-width: 0;
+    margin-bottom: 2rem;
+    transition: max-width .35s;
+}
+
+.accordion .accordion-tab input:checked~.accordion-descr img {
+    max-width: 100%;
+}
+
+.accordion .accordion-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    font-weight: bold;
+}
+
+.accordion .accordion-tab .accordion-icon {
+    transition: all .35s;
+    cursor: pointer;
+    color: black;
+}
+
+.accordion .accordion-tab input:checked+.accordion-title .accordion-icon {
+    transform: rotate(90deg);
 }
 
 .accordion .accordion-descr {
     max-height: 0;
-    transition: max-height .5s ease-in-out;
+    transition: max-height .35s ease-in-out;
+    text-align: center;
 }
 
-.accordion input:checked ~ .accordion-descr {
+.accordion input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.accordion .accordion-tab input:checked~.accordion-descr {
     max-height: 100vh;
+}
+
+@media only screen and (min-width: 320px) {
+    body {
+        font-size: 26px;
+    }
+
+
+    .accordion {
+        max-width: none;
+        margin: 2rem;
+    }
+}
+
+@media only screen and (min-width: 820px) {
+    body {
+        font-size: 24px;
+    }
+
+    .accordion {
+        max-width: 30rem;
+        margin: 0 auto;
+    }
+
+}
+
+@media only screen and (min-width: 1920px) {
+    body {
+        font-size: 16px;
+    }
+
+    .accordion {
+        max-width: 40rem;
+    }
+
+
+}
+
+@media (hover: hover) {
+    .accordion:hover {
+        color: black;
+    }
+
+    .accordion .accordion-icon {
+        display: none;
+    }
+
+    .accordion:hover .accordion-icon {
+        display: inline-block;
+    }
+
+    .accordion .accordion-tab:hover .accordion-descr {
+        max-height: 100vh;
+    }
+
+    .accordion .accordion-tab:hover .accordion-title .accordion-icon {
+        transform: rotate(90deg);
+    }
+
+    .accordion .accordion-tab:hover img {
+        max-width: 100%;
+    }
 }

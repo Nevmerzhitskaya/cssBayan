@@ -1,0 +1,16 @@
+.accordion {
+
+}
+
+.accordion .accordion-tab {
+    overflow: hidden;
+}
+
+.accordion .accordion-descr {
+    max-height: 0;
+    transition: max-height .5s ease-in-out;
+}
+
+.accordion input:checked ~ .accordion-descr {
+    max-height: 100vh;
+}

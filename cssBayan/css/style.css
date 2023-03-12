@@ -7,25 +7,32 @@ h1 {
 }
 
 .accordion {
-    margin: 0 auto;
+    margin: 2rem auto;
     padding: 2rem;
     background: orange;
-    color: blue;
+    color: #da5c5c;
+    transition: color .35s;
+    box-shadow: 1rem 1rem 2rem #9e7b7b;
+}
+
+.accordion label {
+    cursor: pointer;
 }
 
 .accordion .accordion-tab {
     overflow: hidden;
     position: relative;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #612525;
+    cursor: pointer;
 }
 
 .accordion .accordion-tab img {
     max-width: 0;
     margin-bottom: 2rem;
-    transition: max-width .35s;
+    transition: max-width .35s, opacity .35s;
 }
 
-.accordion .accordion-tab input:checked~.accordion-descr img {
+.accordion .accordion-tab input:checked~label .accordion-descr img {
     max-width: 100%;
 }
 
@@ -44,7 +51,7 @@ h1 {
     color: black;
 }
 
-.accordion .accordion-tab input:checked+.accordion-title .accordion-icon {
+.accordion .accordion-tab input:checked+label .accordion-title .accordion-icon {
     transform: rotate(90deg);
 }
 
@@ -55,17 +62,25 @@ h1 {
 }
 
 .accordion input {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
+    display: none;
 }
 
-.accordion .accordion-tab input:checked~.accordion-descr {
+.accordion .accordion-tab input:checked~label {
+    color: #000;
+}
+
+.accordion .accordion-tab input:checked~label .accordion-descr {
     max-height: 100vh;
+}
+
+.accordion .accordion-tab:active label .accordion-icon,
+.accordion .accordion-tab:active label,
+.accordion .accordion-tab:active input:checked~label {
+    color: #da5c5c;
+}
+
+.accordion .accordion-tab:active label img {
+    opacity: 0.8;
 }
 
 @media only screen and (min-width: 320px) {
@@ -87,7 +102,7 @@ h1 {
 
     .accordion {
         max-width: 30rem;
-        margin: 0 auto;
+        margin: 2rem auto;
     }
 
 }

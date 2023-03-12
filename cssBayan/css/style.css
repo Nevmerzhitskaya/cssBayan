@@ -1,0 +1,146 @@
+body {
+    font-size: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.accordion {
+    margin: 2rem auto;
+    padding: 2rem;
+    background: orange;
+    color: #da5c5c;
+    transition: color .35s;
+    box-shadow: 1rem 1rem 2rem #9e7b7b;
+}
+
+.accordion label {
+    cursor: pointer;
+}
+
+.accordion .accordion-tab {
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid #612525;
+    cursor: pointer;
+}
+
+.accordion .accordion-tab img {
+    max-width: 0;
+    margin-bottom: 2rem;
+    transition: max-width .35s, opacity .35s;
+}
+
+.accordion .accordion-tab input:checked~label .accordion-descr img {
+    max-width: 100%;
+}
+
+.accordion .accordion-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    font-weight: bold;
+}
+
+.accordion .accordion-tab .accordion-icon {
+    transition: all .35s;
+    cursor: pointer;
+    color: black;
+}
+
+.accordion .accordion-tab input:checked+label .accordion-title .accordion-icon {
+    transform: rotate(90deg);
+}
+
+.accordion .accordion-descr {
+    max-height: 0;
+    transition: max-height .35s ease-in-out;
+    text-align: center;
+}
+
+.accordion input {
+    display: none;
+}
+
+.accordion .accordion-tab input:checked~label {
+    color: #000;
+}
+
+.accordion .accordion-tab input:checked~label .accordion-descr {
+    max-height: 100vh;
+}
+
+.accordion .accordion-tab:active label .accordion-icon,
+.accordion .accordion-tab:active label,
+.accordion .accordion-tab:active input:checked~label {
+    color: #da5c5c;
+}
+
+.accordion .accordion-tab:active label img {
+    opacity: 0.8;
+}
+
+@media only screen and (min-width: 320px) {
+    body {
+        font-size: 26px;
+    }
+
+
+    .accordion {
+        max-width: none;
+        margin: 2rem;
+    }
+}
+
+@media only screen and (min-width: 820px) {
+    body {
+        font-size: 24px;
+    }
+
+    .accordion {
+        max-width: 30rem;
+        margin: 2rem auto;
+    }
+
+}
+
+@media only screen and (min-width: 1920px) {
+    body {
+        font-size: 16px;
+    }
+
+    .accordion {
+        max-width: 40rem;
+    }
+
+
+}
+
+@media (hover: hover) {
+    .accordion:hover {
+        color: black;
+    }
+
+    .accordion .accordion-icon {
+        display: none;
+    }
+
+    .accordion:hover .accordion-icon {
+        display: inline-block;
+    }
+
+    .accordion .accordion-tab:hover .accordion-descr {
+        max-height: 100vh;
+    }
+
+    .accordion .accordion-tab:hover .accordion-title .accordion-icon {
+        transform: rotate(90deg);
+    }
+
+    .accordion .accordion-tab:hover img {
+        max-width: 100%;
+    }
+}
